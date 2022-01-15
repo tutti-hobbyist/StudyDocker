@@ -60,8 +60,10 @@ CMD <["DockerImageのデフォルトのコマンド、`docker run` 時に起動�
 ### docker runコマンドのオプション
 -d : バックグラウンドで実行
 <br>
+
 -it : インタラクティブ＋見やすい画面表示
 <br>
+
 -v < Host direcroty >:< Container directory > : ホストのファイルシステムをコンテナにマウント (※ ホストのファイルが実際にコンテナ内にあるわけではない‼)
 >指定する Container directory がない場合は、コンテナ側で自動で作成される
 
@@ -71,7 +73,9 @@ CMD <["DockerImageのデフォルトのコマンド、`docker run` 時に起動�
 >ユーザIDとグループIDを指定してコンテナ起動
 
 <br>
+
 -p < Host port >:< Container port > : ホストのポートをコンテナのポートに繋げる
+
 <br>
 
 --cpus < cpu num > --memory < memory num > : CPUやMemoryのサイズを指定してRun
