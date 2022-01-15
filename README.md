@@ -51,8 +51,8 @@ CMD <["DockerImageのデフォルトのコマンド、`docker run` 時に起動�
 <br>
 
 ### Dockerfileのビルド
-`docker build <指定するDockerfileのディレクトリ(Host側)>`
-`docker build -f <dockerfile名> <指定するDockerfileのディレクトリ(Host側)>`
+- `docker build <指定するDockerfileのディレクトリ(Host側)>`
+- `docker build -f <dockerfile名> <指定するDockerfileのディレクトリ(Host側)>`
 >`docker build`でディレクトリを指定するのは、Docker daemonがディレクトリをBuild Contextとして処理するため
 
 <br>
