@@ -84,29 +84,29 @@ CMD <["DockerImageのデフォルトのコマンド、`docker run` 時に起動�
 <br>
 
 ### その他のTips
-sh -x < shファイル >で取得したshファイルで指定できるオプションの確認可能
+sh -x < shファイル >で取得したshファイルで指定できるオプションの確認可能<br>
 ⇒ Dockerfile内でshファイルをバッチ処理する方法を調べるときに使用した
 <br>
 
-AWSのEC2にssh接続する際 (ssh-In)
-コマンドは`ssh -i <xxx.pem(sshKey)> <username>@<hostname>`
-sshはリモート接続でシェルを操作したいときに使用するコマンド
-上で指定するusernameはサービスの名前(今回はUbuntu)、hostnameはEC2のパブリックDNS
+AWSのEC2にssh接続する際 (ssh-In)<br>
+コマンドは`ssh -i <xxx.pem(sshKey)> <username>@<hostname>`<br>
+sshはリモート接続でシェルを操作したいときに使用するコマンド<br>
+上で指定するusernameはサービスの名前(今回はUbuntu)、hostnameはEC2のパブリックDNS<br>
 <br>
 
 #### AWSのインスタンス内にDockerの環境をセットアップ
-１．DockerのCommunity EditionをUbuntuサーバー(EC2)にインストールする際は以下のコマンド
-`sudo apt-get update`で`apt-get`コマンドを更新し、ubuntuで`apt-get`コマンドを使用できるようにする
-２．つぎに以下のコマンド
-`sudo apt-get install docker.io`
-３．これでdockerコマンドを使えるようにはなるが、この状態では毎回sudoをコマンドに入力必要がある。それは手間なので、Dockerグループを作成
-`sudo gpasswd -a ubuntu docker`
-⇒ user ubuntu を group docker に追加
-この操作後、一度`exit`でログアウトし、再度ssh-Inを行う
-一度`exit`でログアウトし、再度ssh-Inを行うことで、グループ作成の変更が反映される
+１．DockerのCommunity EditionをUbuntuサーバー(EC2)にインストールする際は以下のコマンド<br>
+`sudo apt-get update`で`apt-get`コマンドを更新し、ubuntuで`apt-get`コマンドを使用できるようにする<br>
+２．つぎに以下のコマンド<br>
+`sudo apt-get install docker.io`<br>
+３．これでdockerコマンドを使えるようにはなるが、この状態では毎回sudoをコマンドに入力必要がある。それは手間なので、Dockerグループを作成<br>
+`sudo gpasswd -a ubuntu docker`<br>
+⇒ user ubuntu を group docker に追加<br>
+この操作後、一度`exit`でログアウトし、再度ssh-Inを行う<br>
+一度`exit`でログアウトし、再度ssh-Inを行うことで、グループ作成の変更が反映される<br>
 <br>
 
-Docker imageを共有する方法
+**Docker imageを共有する方法**
 1. Docker HubにImageをPush
     - 環境構築する側でインターネット接続が必要
 1. Dockerfileを共有
