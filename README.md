@@ -84,7 +84,39 @@ CMD <["DockerImageのデフォルトのコマンド、`docker run` 時に起動�
 <br>
 
 ### その他のTips
-sh -x < shファイル >で取得したshファイルで指定できるオプションの確認可能<br>
+sh -x < shファイル >で取得したshファイルで指定できるオプションの確認可能
 ⇒ Dockerfile内でshファイルをバッチ処理する方法を調べるときに使用した
+<br>
+
+AWSのEC2にssh接続する際 (ssh-In)
+コマンドは`ssh -i <xxx.pem(sshKey)> <username>@<hostname>`
+sshはリモート接続でシェルを操作したいときに使用するコマンド
+上で指定するusernameはサービスの名前(今回はUbuntu)、hostnameはEC2のパブリックDNS
+<br>
+
+#### AWSのインスタンス内にDockerの環境をセットアップ
+１．DockerのCommunity EditionをUbuntuサーバー(EC2)にインストールする際は以下のコマンド
+`sudo apt-get update`で`apt-get`コマンドを更新し、ubuntuで`apt-get`コマンドを使用できるようにする
+２．つぎに以下のコマンド
+`sudo apt-get install docker.io`
+３．これでdockerコマンドを使えるようにはなるが、この状態では毎回sudoをコマンドに入力必要がある。それは手間なので、Dockerグループを作成
+`sudo gpasswd -a ubuntu docker`
+⇒ user ubuntu を group docker に追加
+この操作後、一度`exit`でログアウトし、再度ssh-Inを行う
+一度`exit`でログアウトし、再度ssh-Inを行うことで、グループ作成の変更が反映される
+<br>
+
+Docker imageを共有する方法
+1. Docker HubにImageをPush
+    - 環境構築する側でインターネット接続が必要
+1. Dockerfileを共有
+    - 環境構築する側でインターネット接続が必要
+    - `sftp -i <xxx.pem(sshKey)> <username>@<hostname>`でリモートにアクセス
+        - `put <ローカルファイルorディレクトリ> <リモートディレクトリ>`でローカルのファイルやディレクトリをリモートのディレクトリにコピー
+        - `get <リモートファイルorディレクトリ> <ローカルディレクトリ>`でリモートのファイルやディレクトリをローカルのディレクトリにコピー
+1. Docker imageをtarファイルに圧縮して共有
+    - 容量が大きいものは圧縮・共有・解凍それぞれで時間がかかる
+    - tarファイルに圧縮 : `docker save < image ID > > < xxx.tar >`
+    - tarファイルを展開 : `docker load < < xxx.tar >`
 
 </span>
