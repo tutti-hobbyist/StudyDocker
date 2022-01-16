@@ -96,9 +96,9 @@ sshはリモート接続でシェルを操作したいときに使用するコ�
 
 #### AWSのインスタンス内にDockerの環境をセットアップ
 １．DockerのCommunity EditionをUbuntuサーバー(EC2)にインストールする際は以下のコマンド<br>
-`sudo apt-get update`で`apt-get`コマンドを更新し、ubuntuで`apt-get`コマンドを使用できるようにする<br>
+`sudo apt-get update`で`apt-get`コマンドを更新し、ubuntuで`apt-get`コマンドを使用できるようにする<br><br>
 ２．つぎに以下のコマンド<br>
-`sudo apt-get install docker.io`<br>
+`sudo apt-get install docker.io`<br><br>
 ３．これでdockerコマンドを使えるようにはなるが、この状態では毎回sudoをコマンドに入力必要がある。それは手間なので、Dockerグループを作成<br>
 `sudo gpasswd -a ubuntu docker`<br>
 ⇒ user ubuntu を group docker に追加<br>
