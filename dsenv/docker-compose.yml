@@ -1,0 +1,7 @@
+version: '1'
+dsenv:
+  build: .
+  volumes:
+    - ~:/work
+  ports:
+  - "8888:8888"
