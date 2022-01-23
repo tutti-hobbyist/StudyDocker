@@ -1,0 +1,6 @@
+version: '3'
+services:
+  dsenv:
+    build: .
+    ports:
+    - "8888:8888"
