@@ -10,7 +10,7 @@ FROM <元となるImage>
 <br>
 
 RUN <Imageを構成する際に必要なコマンド、DockerImageに保存したいコマンド>
->RUNコマンドのTips
+>RUNコマンドのTips<br>
 ・RUN毎にImageLayerが作成されファイルサイズが大きくなる<br>
 ・ImageLayerは必要最小限にするのがベストプラクティス<br>
 ・Layerを作るのは、RUN / COPY / ADD の3つ<br>
